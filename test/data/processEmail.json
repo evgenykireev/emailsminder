@@ -1,0 +1,22 @@
+{
+  "Records": [
+    {
+      "EventSource": "aws:sns",
+      "EventVersion": "1.0",
+      "EventSubscriptionArn": "arn:aws:sns:ap-southeast-2:080463742425:email-process-dev:9a80f400-9a0c-456a-b1fb-ff9327f73212",
+      "Sns": {
+        "Type": "Notification",
+        "MessageId": "0ed400a1-bb61-57f1-a1e4-5389a9fca752",
+        "TopicArn": "arn:aws:sns:ap-southeast-2:080463742425:email-process-dev",
+        "Subject": null,
+        "Message": "{\"emailID\":\"105f9bb8-98a8-4283-98e4-25dbaea900f4\"}",
+        "Timestamp": "2018-03-18T07:08:13.552Z",
+        "SignatureVersion": "1",
+        "Signature": "aPGs0zyw9YU6V/FWB9ScuUaqEMlnAJ3DDDFsdPUCxiBrF5A7S2e0EZlCoGNfbIXvmFf1QQ/ADhJFyDpkKf+aGdNaWRp2Tcq2BhIdkKCdOzC/X0HG32t6ns6tLpHvhDPLUP771sCY1+VoJLiNdkhgH/3aGnaEtK6riDEreicCcrD/GQXsx4d/DWdO9qwzwXBhuog6jBNAiYT9Y7aQ0wH7F/gnUpu1AV53sNCZdUZ2mCatl1tdXE6cNj3LicfyMX5wKUwNgGp4KdUdjUvSWQ2KeWXM/T1vBrXrFeUpOah61icrwYGyo4s8h2RltVINDbgLh5jU8D1Z+NQMkEmoIuNx1g==",
+        "SigningCertUrl": "https://sns.ap-southeast-2.amazonaws.com/SimpleNotificationService-433026a4050d206028891664da859041.pem",
+        "UnsubscribeUrl": "https://sns.ap-southeast-2.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:ap-southeast-2:080463742425:email-process-dev:9a80f400-9a0c-456a-b1fb-ff9327f73212",
+        "MessageAttributes": {}
+      }
+    }
+  ]
+}

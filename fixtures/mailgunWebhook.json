@@ -1,0 +1,55 @@
+{
+  "resource": "/email/webhook/{provider}",
+  "path": "/email/webhook/mailgun",
+  "httpMethod": "POST",
+  "headers": {
+    "Accept": "*/*",
+    "Accept-Encoding": "gzip",
+    "CloudFront-Forwarded-Proto": "https",
+    "CloudFront-Is-Desktop-Viewer": "true",
+    "CloudFront-Is-Mobile-Viewer": "false",
+    "CloudFront-Is-SmartTV-Viewer": "false",
+    "CloudFront-Is-Tablet-Viewer": "false",
+    "CloudFront-Viewer-Country": "US",
+    "Content-Type": "application/x-www-form-urlencoded",
+    "Host": "1918gulvjf.execute-api.ap-southeast-2.amazonaws.com",
+    "User-Agent": "mailgun/treq-16.12.0",
+    "Via": "1.1 e7c0b31d9821e117355a6a7a216eac86.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Id": "FBZAuZyeV69byEDOrDBQltcghllngQOPCbzLR2KtC4AJg6wZAc7_Zw==",
+    "X-Amzn-Trace-Id": "Root=1-5aae0bda-4282ca2062f1dc50ad3f64a8",
+    "X-Forwarded-For": "54.84.194.244, 54.240.144.56",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "queryStringParameters": null,
+  "pathParameters": {
+    "provider": "mailgun"
+  },
+  "stageVariables": null,
+  "requestContext": {
+    "path": "/dev/email/webhook/mailgun",
+    "accountId": "080463742425",
+    "protocol": "HTTP/1.1",
+    "resourceId": "62hifj",
+    "stage": "dev",
+    "requestId": "6f19e4a5-2a78-11e8-8cb3-a5c898842175",
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "accountId": null,
+      "cognitoIdentityId": null,
+      "caller": null,
+      "sourceIp": "54.84.194.244",
+      "accessKey": null,
+      "cognitoAuthenticationType": null,
+      "cognitoAuthenticationProvider": null,
+      "userArn": null,
+      "userAgent": "mailgun/treq-16.12.0",
+      "user": null
+    },
+    "resourcePath": "/email/webhook/{provider}",
+    "httpMethod": "POST",
+    "apiId": "1918gulvjf"
+  },
+  "body": "token=8a66e4e3a5e96033b4d66172ae3bb610d5275b8f24bc21a393&signature=d253f614be0c88c3f0c7757d312145571f180df5e5701bc8ce571b0dafa20bcc&X-Mailgun-Sid=WyIzMTc4NSIsICJldmdlbnlraXJlZXZAZ21haWwuY29tIiwgImMyNmM3MDgiXQ%3D%3D&emailID=1ba1121b-6cae-4e99-a24f-97324ba91af0&domain=sandbox04895a37e8dc4db3948cefb4a3fd3c8b.mailgun.org&message-headers=%5B%5B%22X-Mailgun-Sid%22%2C+%22WyIzMTc4NSIsICJldmdlbnlraXJlZXZAZ21haWwuY29tIiwgImMyNmM3MDgiXQ%3D%3D%22%5D%2C+%5B%22X-Mailgun-Sending-Ip%22%2C+%22184.173.153.194%22%5D%2C+%5B%22Content-Transfer-Encoding%22%2C+%5B%227bit%22%2C+%7B%7D%5D%5D%2C+%5B%22Received%22%2C+%22by+luna.mailgun.net+with+HTTP%3B+Sun%2C+18+Mar+2020+06%3A48%3A57+%2B0000%22%5D%2C+%5B%22Date%22%2C+%22Sun%2C+18+Mar+2020+06%3A48%3A57+%2B0000%22%5D%2C+%5B%22Sender%22%2C+%22noreply%3Dsite.com%40mailgun.org%22%5D%2C+%5B%22Message-Id%22%2C+%22%3C20180318064857.1.AE9D7E37845C0C66%40sandbox04895a37e8dc4db3948cefb4a3fd3c8b.mailgun.org%3E%22%5D%2C+%5B%22X-Mailgun-Variables%22%2C+%22%7B%5C%22emailID%5C%22%3A+%5C%221ba1121b-6cae-4e99-a24f-97324ba91af0%5C%22%7D%22%5D%2C+%5B%22To%22%2C+%22evgenykireev%40gmail.com%22%5D%2C+%5B%22From%22%2C+%22EmailSend+%3Cnoreply%40site.com%3E%22%5D%2C+%5B%22Subject%22%2C+%22test%22%5D%2C+%5B%22Content-Type%22%2C+%5B%22text%2Fplain%22%2C+%7B%22charset%22%3A+%22ascii%22%7D%5D%5D%2C+%5B%22Mime-Version%22%2C+%221.0%22%5D%5D&Message-Id=%3C20180318064857.1.AE9D7E37845C0C66%40sandbox04895a37e8dc4db3948cefb4a3fd3c8b.mailgun.org%3E&recipient=evgenykireev%40gmail.com&event=delivered&body-plain=",
+  "isBase64Encoded": false
+}

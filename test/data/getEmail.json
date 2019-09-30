@@ -1,0 +1,17 @@
+{
+  "resource": "/email/get/{emailID}",
+  "path": "/email/get/e3eb812d-1d33-41b5-8f44-5abc258e906c",
+  "httpMethod": "GET",
+  "headers": {},
+  "queryStringParameters": null,
+  "pathParameters": {
+    "emailID": "e3eb812d-1d33-41b5-8f44-5abc258e906c"
+  },
+  "stageVariables": null,
+  "requestContext": {
+    "resourcePath": "/email/get/{emailID}",
+    "httpMethod": "GET"
+  },
+  "body": null,
+  "isBase64Encoded": false
+}

@@ -1,0 +1,15 @@
+{
+  "resource": "/email",
+  "path": "/email",
+  "httpMethod": "POST",
+  "headers": {},
+  "queryStringParameters": null,
+  "pathParameters": null,
+  "stageVariables": null,
+  "requestContext": {
+    "resourcePath": "/email",
+    "httpMethod": "POST"
+  },
+  "body": "{\"to\": [\"evgenykireev@gmail.com\"], \"subject\": \"Hi\", \"body\": \"test\"}",
+  "isBase64Encoded": false
+}

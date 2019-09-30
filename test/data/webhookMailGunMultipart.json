@@ -1,0 +1,55 @@
+{
+  "resource": "/email/webhook/{provider}",
+  "path": "/email/webhook/mailgun",
+  "httpMethod": "POST",
+  "headers": {
+    "Accept-Encoding": "gzip",
+    "CloudFront-Forwarded-Proto": "https",
+    "CloudFront-Is-Desktop-Viewer": "true",
+    "CloudFront-Is-Mobile-Viewer": "false",
+    "CloudFront-Is-SmartTV-Viewer": "false",
+    "CloudFront-Is-Tablet-Viewer": "false",
+    "CloudFront-Viewer-Country": "US",
+    "Content-Type": "multipart/form-data; boundary=adcd7f8f-0ea0-40e5-93f2-0720423e7948",
+    "Host": "1918gulvjf.execute-api.ap-southeast-2.amazonaws.com",
+    "Via": "1.1 2551e3c0d0aa2d66ee9930d482b2497c.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Id": "nX69YKRftn8imOD2m5GA_Ii63GPqNGoNnjs9-7b_t-zknB85mbFjcQ==",
+    "X-Amzn-Trace-Id": "Root=1-5aaf56cb-943fb300bf762388490a7748",
+    "X-Forwarded-For": "52.205.206.237, 54.239.145.97",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "queryStringParameters": null,
+  "pathParameters": {
+    "provider": "mailgun"
+  },
+  "stageVariables": null,
+  "requestContext": {
+    "requestTime": "19/Mar/2018:06:20:59 +0000",
+    "path": "/dev/email/webhook/mailgun",
+    "accountId": "080463742425",
+    "protocol": "HTTP/1.1",
+    "resourceId": "62hifj",
+    "stage": "dev",
+    "requestTimeEpoch": 1521440459070,
+    "requestId": "b09a4649-2b3d-11e8-a25f-fd2db5ae62d3",
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "accountId": null,
+      "cognitoIdentityId": null,
+      "caller": null,
+      "sourceIp": "52.205.206.237",
+      "accessKey": null,
+      "cognitoAuthenticationType": null,
+      "cognitoAuthenticationProvider": null,
+      "userArn": null,
+      "userAgent": null,
+      "user": null
+    },
+    "resourcePath": "/email/webhook/{provider}",
+    "httpMethod": "POST",
+    "apiId": "1918gulvjf"
+  },
+  "body": "--adcd7f8f-0ea0-40e5-93f2-0720423e7948\r\nContent-Disposition: form-data; name=\"Message-Id\"\r\n\r\n<20130503192659.13651.20287@mg.emailsminder.com>\r\n--adcd7f8f-0ea0-40e5-93f2-0720423e7948\r\nContent-Disposition: form-data; name=\"X-Mailgun-Sid\"\r\n\r\nWyIwNzI5MCIsICJpZG91YnR0aGlzb25lZXhpc3RzQGdtYWlsLmNvbSIsICI2Il0=\r\n--adcd7f8f-0ea0-40e5-93f2-0720423e7948\r\nContent-Disposition: form-data; name=\"attachment-count\"\r\n\r\n1\r\n--adcd7f8f-0ea0-40e5-93f2-0720423e7948\r\nContent-Disposition: form-data; name=\"body-plain\"\r\n\r\n\r\n--adcd7f8f-0ea0-40e5-93f2-0720423e7948\r\nContent-Disposition: form-data; name=\"code\"\r\n\r\n605\r\n--adcd7f8f-0ea0-40e5-93f2-0720423e7948\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\nNot delivering to previously bounced address\r\n--adcd7f8f-0ea0-40e5-93f2-0720423e7948\r\nContent-Disposition: form-data; name=\"domain\"\r\n\r\nmg.emailsminder.com\r\n--adcd7f8f-0ea0-40e5-93f2-0720423e7948\r\nContent-Disposition: form-data; name=\"event\"\r\n\r\ndropped\r\n--adcd7f8f-0ea0-40e5-93f2-0720423e7948\r\nContent-Disposition: form-data; name=\"message-headers\"\r\n\r\n[[\"Received\", \"by luna.mailgun.net with SMTP mgrt 8755546751405; Fri, 03 May 2013 19:26:59 +0000\"], [\"Content-Type\", [\"multipart/alternative\", {\"boundary\": \"23041bcdfae54aafb801a8da0283af85\"}]], [\"Mime-Version\", \"1.0\"], [\"Subject\", \"Test drop webhook\"], [\"From\", \"Bob <bob@mg.emailsminder.com>\"], [\"To\", \"Alice <alice@example.com>\"], [\"Message-Id\", \"<20130503192659.13651.20287@mg.emailsminder.com>\"], [\"List-Unsubscribe\", \"<mailto:u+na6tmy3ege4tgnldmyytqojqmfsdembyme3tmy3cha4wcndbgaydqyrgoi6wszdpovrhi5dinfzw63tfmv4gs43uomstimdhnvqws3bomnxw2jtuhusteqjgmq6tm@mg.emailsminder.com>\"], [\"X-Mailgun-Sid\", \"WyIwNzI5MCIsICJpZG91YnR0aGlzb25lZXhpc3RzQGdtYWlsLmNvbSIsICI2Il0=\"], [\"X-Mailgun-Variables\", \"{\\\"my_var_1\\\": \\\"Mailgun Variable #1\\\", \\\"my-var-2\\\": \\\"awesome\\\"}\"], [\"Date\", \"Fri, 03 May 2013 19:26:59 +0000\"], [\"Sender\", \"bob@mg.emailsminder.com\"]]\r\n--adcd7f8f-0ea0-40e5-93f2-0720423e7948\r\nContent-Disposition: form-data; name=\"my-var-2\"\r\n\r\nawesome\r\n--adcd7f8f-0ea0-40e5-93f2-0720423e7948\r\nContent-Disposition: form-data; name=\"my_var_1\"\r\n\r\nMailgun Variable #1\r\n--adcd7f8f-0ea0-40e5-93f2-0720423e7948\r\nContent-Disposition: form-data; name=\"reason\"\r\n\r\nhardfail\r\n--adcd7f8f-0ea0-40e5-93f2-0720423e7948\r\nContent-Disposition: form-data; name=\"recipient\"\r\n\r\nalice@example.com\r\n--adcd7f8f-0ea0-40e5-93f2-0720423e7948\r\nContent-Disposition: form-data; name=\"signature\"\r\n\r\n0b878a715781e3075cf5ac7eceec3967dd9c16f92fedc0b5760b6846d1f1066f\r\n--adcd7f8f-0ea0-40e5-93f2-0720423e7948\r\nContent-Disposition: form-data; name=\"timestamp\"\r\n\r\n1521440458\r\n--adcd7f8f-0ea0-40e5-93f2-0720423e7948\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n9cd1d13ee7e61a87497a5115cec722de126d1e0962d91c087b\r\n--adcd7f8f-0ea0-40e5-93f2-0720423e7948\r\nContent-Disposition: form-data; name=\"attachment-1\"; filename=\"message.mime\"\r\nContent-Type: application/octet-stream\r\nContent-Length: 1258\r\n\r\nReceived: by luna.mailgun.net with SMTP mgrt 8755546751405; Fri, 03 May 2013\n 19:26:59 +0000\nContent-Type: multipart/alternative; boundary=\"23041bcdfae54aafb801a8da0283af85\"\nMime-Version: 1.0\nSubject: Test drop webhook\nFrom: Bob <bob@mg.emailsminder.com>\nTo: Alice <alice@example.com>\nMessage-Id: <20130503192659.13651.20287@mg.emailsminder.com>\nList-Unsubscribe: <mailto:u+na6tmy3ege4tgnldmyytqojqmfsdembyme3tmy3cha4wcndbgaydqyrgoi6wszdpovrhi5dinfzw63tfmv4gs43uomstimdhnvqws3bomnxw2jtuhusteqjgmq6tm@mg.emailsminder.com>\nX-Mailgun-Sid: WyIwNzI5MCIsICJpZG91YnR0aGlzb25lZXhpc3RzQGdtYWlsLmNvbSIsICI2Il0=\nX-Mailgun-Variables: {\"my_var_1\": \"Mailgun Variable #1\", \"my-var-2\": \"awesome\"}\nDate: Fri, 03 May 2013 19:26:59 +0000\nSender: bob@mg.emailsminder.com\n\n--23041bcdfae54aafb801a8da0283af85\nMime-Version: 1.0\nContent-Type: text/plain; charset=\"ascii\"\nContent-Transfer-Encoding: 7bit\n\nHi Alice, I sent an email to this address but it was bounced.\n\n--23041bcdfae54aafb801a8da0283af85\nMime-Version: 1.0\nContent-Type: text/html; charset=\"ascii\"\nContent-Transfer-Encoding: 7bit\n\n<html>\n                            <body>Hi Alice, I sent an email to this address but it was bounced.\n                            <br>\n</body></html>\n--23041bcdfae54aafb801a8da0283af85--\n\r\n--adcd7f8f-0ea0-40e5-93f2-0720423e7948--\r\n",
+  "isBase64Encoded": false
+}

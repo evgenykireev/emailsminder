@@ -1,0 +1,114 @@
+service: emailsMinder
+
+custom:
+  stage: ${self:custom.config.stage}
+  config: ${file(./src/config/serverless.js)}
+  envConfig: ${file(env.yml):${self:custom.stage}}
+  emailTable: emails-${self:custom.stage}
+  emailProcessTopic: email-process-${self:custom.stage}
+  emailProcessTopicARN: arn:aws:sns:${self:custom.envConfig.AWS_REGION}:${self:custom.envConfig.AWS_ACCOUNT}:${self:custom.emailProcessTopic}
+  deadLetterTopic: lambdaDLQ-${self:custom.stage}
+  deadLetterARN: arn:aws:sns:${self:custom.envConfig.AWS_REGION}:${self:custom.envConfig.AWS_ACCOUNT}:${self:custom.deadLetterTopic}
+
+package:
+  individually: true
+  exclude:
+    # ensures all files are excluded by default
+    - "*"
+    - "*/**"
+  include:
+    - src/**
+    - node_modules/**
+    - openapi.json
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  memorySize: 512
+  stage: ${self:custom.stage}
+  region: ${self:custom.envConfig.AWS_REGION}
+  versionFunctions: false
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - "dynamodb:*"
+      Resource: "arn:aws:dynamodb:*:*:table/email*"
+    - Effect: Allow
+      Action:
+        - "s3:*"
+      Resource: "arn:aws:s3:::email*"
+    - Effect: Allow
+      Action:
+        - "sns:*"
+      Resource: "arn:aws:sns:*:*:email*"
+    - Effect: "Allow"
+      Action:
+        - "logs:CreateLogGroup"
+        - "logs:CreateLogStream"
+        - "logs:PutLogEvents"
+      Resource: "*"
+
+  environment:
+    NODE_ENV: "production"
+    APP_ENV: ${self:custom.stage}
+    EMAIL_TABLE: ${self:custom.emailTable}
+    PROCESS_EMAIL_TOPIC: ${self:custom.emailProcessTopicARN}
+    MAILGUN_DOMAIN: ${self:custom.envConfig.MAILGUN_DOMAIN}
+    MAILGUN_API_KEY: ${self:custom.envConfig.MAILGUN_API_KEY}
+    SENDGRID_API_KEY: ${self:custom.envConfig.SENDGRID_API_KEY}
+
+functions:
+  emailSend:
+    handler: src/lambdas/emailSend.handler
+    events:
+      - http:
+          path: v1/email
+          method: post
+
+  emailGet:
+    handler: src/lambdas/emailGet.handler
+    events:
+      - http:
+          path: v1/email/{emailID}
+          method: get
+
+  emailProcess:
+    handler: src/lambdas/emailProcess.handler
+    onError: ${self:custom.deadLetterARN}
+    events:
+      - sns: ${self:custom.emailProcessTopicARN}
+
+  emailWebhook:
+    handler: src/lambdas/emailWebhook.handler
+    onError: ${self:custom.deadLetterARN}
+    events:
+      - http:
+          path: v1/email/webhook/{provider}
+          method: post
+
+resources:
+  Resources:
+    processEmailSNS:
+      Type: "AWS::SNS::Topic"
+      Properties:
+        TopicName: ${self:custom.emailProcessTopic}
+
+    deadLetterQueue:
+      Type: "AWS::SNS::Topic"
+      Properties:
+        TopicName: ${self:custom.deadLetterTopic}
+
+    emailsTable:
+      Type: "AWS::DynamoDB::Table"
+      Properties:
+        TableName: ${self:custom.emailTable}
+        AttributeDefinitions:
+          -
+            AttributeName: "id"
+            AttributeType: "S"
+        KeySchema:
+          -
+            AttributeName: "id"
+            KeyType: "HASH"
+        BillingMode: PAY_PER_REQUEST

@@ -1,0 +1,54 @@
+{
+  "resource": "/email/webhook/{provider}",
+  "path": "/email/webhook/sendgrid",
+  "httpMethod": "POST",
+  "headers": {
+    "CloudFront-Forwarded-Proto": "https",
+    "CloudFront-Is-Desktop-Viewer": "true",
+    "CloudFront-Is-Mobile-Viewer": "false",
+    "CloudFront-Is-SmartTV-Viewer": "false",
+    "CloudFront-Is-Tablet-Viewer": "false",
+    "CloudFront-Viewer-Country": "US",
+    "Content-type": "application/json; charset=utf-8",
+    "Host": "1918gulvjf.execute-api.ap-southeast-2.amazonaws.com",
+    "Referer": "https://1918gulvjf.execute-api.ap-southeast-2.amazonaws.com/dev/email/webhook/sendgrid",
+    "User-Agent": "SendGrid Event API",
+    "Via": "1.1 e2905060c3a34ac9a550fa27e50356c4.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Id": "vDRsBLfzykqIR5beDO6qkxC5oE4wiZSWOBplUkjV3YCfV2VUzRftJw==",
+    "X-Amzn-Trace-Id": "Root=1-5aae1d6f-6816c10210c21093883ac72b",
+    "X-Forwarded-For": "167.89.121.229, 52.46.47.142",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "queryStringParameters": null,
+  "pathParameters": {
+    "provider": "sendgrid"
+  },
+  "stageVariables": null,
+  "requestContext": {
+    "path": "/dev/email/webhook/sendgrid",
+    "accountId": "080463742425",
+    "protocol": "HTTP/1.1",
+    "resourceId": "62hifj",
+    "stage": "dev",
+    "requestId": "e9cea889-2a82-11e8-9931-85c65808370b",
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "accountId": null,
+      "cognitoIdentityId": null,
+      "caller": null,
+      "sourceIp": "167.89.121.229",
+      "accessKey": null,
+      "cognitoAuthenticationType": null,
+      "cognitoAuthenticationProvider": null,
+      "userArn": null,
+      "userAgent": "SendGrid Event API",
+      "user": null
+    },
+    "resourcePath": "/email/webhook/{provider}",
+    "httpMethod": "POST",
+    "apiId": "1918gulvjf"
+  },
+  "body": "[{\"email\":\"evgenykireev123123@gmail.com\",\"smtp-id\":\"<1prrzsnMReyZ4t2KB3xabA@ismtpd0005p1maa1.sendgrid.net>\",\"sg_event_id\":\"qrnfRLiqRsq35XwCzQ_VEA\",\"sg_message_id\":\"1prrzsnMReyZ4t2KB3xabA.filter0010p3las1-24417-5AAE0E60-1.0\",\"event\":\"processed\",\"emailID\":\"e4f28395-ef4d-49c4-9c3d-9ed4da32bcc4\"}]\r\n",
+  "isBase64Encoded": false
+}

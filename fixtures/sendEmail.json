@@ -1,0 +1,52 @@
+{
+  "resource": "/email/send",
+  "path": "/email/send",
+  "httpMethod": "POST",
+  "headers": {
+    "Accept": "*/*",
+    "CloudFront-Forwarded-Proto": "https",
+    "CloudFront-Is-Desktop-Viewer": "true",
+    "CloudFront-Is-Mobile-Viewer": "false",
+    "CloudFront-Is-SmartTV-Viewer": "false",
+    "CloudFront-Is-Tablet-Viewer": "false",
+    "CloudFront-Viewer-Country": "AU",
+    "Content-Type": "application/json",
+    "Host": "1918gulvjf.execute-api.ap-southeast-2.amazonaws.com",
+    "User-Agent": "curl/7.45.0",
+    "Via": "1.1 87e0d7999a63f274d6fdcfc1cb15ef73.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Id": "fUnkVkqsjctCJsMomJMKbtY-HMtQjfeHF40Ftod6P7KC-WA4FLLrhw==",
+    "X-Amzn-Trace-Id": "Root=1-5aae5472-cb46aa1423407b1065ced02e",
+    "X-Forwarded-For": "123.2.158.171, 54.240.152.16",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "queryStringParameters": null,
+  "pathParameters": null,
+  "stageVariables": null,
+  "requestContext": {
+    "path": "/dev/email/send",
+    "accountId": "080463742425",
+    "protocol": "HTTP/1.1",
+    "resourceId": "senrii",
+    "stage": "dev",
+    "requestId": "b3f8252a-2aa3-11e8-b051-8f0d07b0278c",
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "accountId": null,
+      "cognitoIdentityId": null,
+      "caller": null,
+      "sourceIp": "123.2.158.171",
+      "accessKey": null,
+      "cognitoAuthenticationType": null,
+      "cognitoAuthenticationProvider": null,
+      "userArn": null,
+      "userAgent": "curl/7.45.0",
+      "user": null
+    },
+    "resourcePath": "/email/send",
+    "httpMethod": "POST",
+    "apiId": "1918gulvjf"
+  },
+  "body": "{\"to\": [\"evgenykireev@gmail.com\"], \"subject\": \"Hi\", \"body\": \"test\"}",
+  "isBase64Encoded": false
+}

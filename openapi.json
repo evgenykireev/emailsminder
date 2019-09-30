@@ -1,0 +1,248 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "EmailsMinder API",
+    "version": "0.0.1",
+    "title": "EmailsMinder",
+    "contact": {
+      "name": "Eugene Kireev",
+      "url": "https://github.com/evgenykireev/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://zak0alzon7.execute-api.ap-southeast-2.amazonaws.com/dev/v1/"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "ID": {
+        "type": "string",
+        "minLength": 1
+      },
+      "EmailAddress": {
+        "type": "string",
+        "format": "email"
+      },
+      "Recipient": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/EmailAddress"
+        },
+        "minItems": 1
+      },
+      "Subject": {
+        "type": "string"
+      },
+      "Body": {
+        "type": "string"
+      },
+      "Webhook": {
+        "type": "string"
+      },
+      "Email": {
+        "type": "object",
+        "description": "Email.",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/ID"
+          },
+          "to": {
+            "$ref": "#/components/schemas/Recipient"
+          },
+          "cc": {
+            "$ref": "#/components/schemas/Recipient"
+          },
+          "bcc": {
+            "$ref": "#/components/schemas/Recipient"
+          },
+          "subject": {
+            "$ref": "#/components/schemas/Subject"
+          },
+          "body": {
+            "$ref": "#/components/schemas/Body"
+          },
+          "webhook": {
+            "$ref": "#/components/schemas/Webhook"
+          },
+          "processingStatus": {
+            "type": "string",
+            "description": "Status of email delivery",
+            "enum": [
+              "queued",
+              "failed",
+              "processing",
+              "delivered"
+            ]
+          },
+          "processingResult": {
+            "type": "array",
+            "description": "A log information about email delivery. It will contain all updates from providers for this email",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "SendEmail": {
+        "type": "object",
+        "description": "Send email payload.",
+        "required": [
+          "to",
+          "body"
+        ],
+        "properties": {
+          "to": {
+            "$ref": "#/components/schemas/Recipient"
+          },
+          "cc": {
+            "$ref": "#/components/schemas/Recipient"
+          },
+          "bcc": {
+            "$ref": "#/components/schemas/Recipient"
+          },
+          "subject": {
+            "$ref": "#/components/schemas/Subject"
+          },
+          "body": {
+            "$ref": "#/components/schemas/Body"
+          },
+          "webhook": {
+            "$ref": "#/components/schemas/Webhook"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "responses": {
+      "Error": {
+        "description": "Unsuccessful response.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "description": "Will also be false here"
+                },
+                "error": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer",
+                      "description": "Error code."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Short error message."
+                    },
+                    "details": {
+                      "type": "string",
+                      "description": "Details about the error."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/email": {
+      "post": {
+        "summary": "Send an email.",
+        "tags": [
+          "email"
+        ],
+        "operationId": "sendEmail",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendEmail"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "true"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Email"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/Error"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/email/{id}": {
+      "get": {
+        "summary": "Obtains information about email.",
+        "tags": [
+          "email"
+        ],
+        "operationId": "getEmail",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Email ID.",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/ID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "true"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Email"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/Error"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    }
+  }
+}
