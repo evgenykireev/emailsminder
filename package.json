@@ -15,7 +15,7 @@
     "node": ">=8.10"
   },
   "devDependencies": {
-    "aws-sdk": "^2.536.0",
+    "aws-sdk": "^2.814.0",
     "chai": "^4.2.0",
     "eslint": "^6.4.0",
     "eslint-config-airbnb": "^18.0.1",
